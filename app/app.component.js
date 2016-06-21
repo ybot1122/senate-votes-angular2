@@ -18,6 +18,7 @@
 
   app.TopView = ng.core.Component({
     selector: 'top-view',
+    directives: [app.RollCallDetail],
     template: `
       <h1>{{title}}</h1>
       <h2>{{subtitle}}</h2>
@@ -31,6 +32,7 @@
           {{senator.name}} ({{senator.state}} - {{senator.party}})
         </li>
       </ul>
+      <rollcall-detail></rollcall-detail>
     `
   })
   .Class({
