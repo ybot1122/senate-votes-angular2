@@ -1,14 +1,5 @@
 (function(app) {
 
-
-  app.Senator = ng.core.Class({
-    constructor: function(name, state, party) {
-      this.state = state;
-      this.name = name;
-      this.party = party;
-    }
-  });
-
   app.Senators = [
     new app.Senator('Alexander', 'TN', 'R'),
     new app.Senator('Ayotte', 'TN', 'R'),
