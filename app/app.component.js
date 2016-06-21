@@ -14,7 +14,11 @@
       <h1>{{title}}</h1>
       <h2>{{subtitle}}</h2>
       <div>
-        <p>{{washingtonSenator.name}}</p>
+        <p>{{washingtonSenator.state}}</p>
+      </div>
+      <div>
+        <label>name: </label>
+        <input value="{{washingtonSenator.name}}" placeholder="name" />
       </div>
     `
   })
@@ -26,4 +30,5 @@
       console.log(this.washingtonSenator);
     }
   });
+
 })(window.app || (window.app = {}));
