@@ -13,12 +13,10 @@
     template: `
       <h1>{{title}}</h1>
       <h2>{{subtitle}}</h2>
+      <div><p>Searching For: {{searchQuery}}</p></div>
       <div>
-        <p>{{washingtonSenator.state}}</p>
-      </div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="title" value="{{washingtonSenator.name}}" placeholder="name" />
+        <label>Filter: </label>
+        <input [(ngModel)]="searchQuery" placeholder="enter keywords" />
       </div>
     `
   })
@@ -26,8 +24,7 @@
     constructor: function() {
       this.title = 'H.R.2578 Senate Vote Results';
       this.subtitle = 'A bill making appropriations for the Departments of Commerce and Justice, Science, and Related Agencies for the fiscal year ending September 30, 2016, and for other purposes.';
-      this.washingtonSenator = new app.Senator('Murray', 'WA', 'D');
-      console.log(this.washingtonSenator);
+      this.searchQuery = '';
     }
   });
 
