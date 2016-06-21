@@ -18,18 +18,21 @@
 
       if (!this.voters.state) {
         this.voters.state = [];
-        this.voters.state.push({
-          senator: senator,
-          yea: votedYea
-        });
       }
 
-      if (this.voters.state.length < 2) {
-
-      } else {
-        // code smell?
+      // check
+      if (this.voters.state.length >= 2) {
         console.error('States only get two senators each');
+        return;
       }
+
+      // update internal representation
+      this.totalVotes += 1;
+      this.yeaVotes += (votedYea) ? 1 : 0;
+      this.voters.state.push({
+        senator: senator,
+        yea: votedYea
+      });
     }
   });
 
