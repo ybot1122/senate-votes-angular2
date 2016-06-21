@@ -10,7 +10,13 @@
 
   app.TopView = ng.core.Component({
     selector: 'top-view',
-    template: '<h1>{{title}}</h1><h2>{{subtitle}}</h2><div><p>{{washingtonSenator.name}}</p></div>'
+    template: `
+      <h1>{{title}}</h1>
+      <h2>{{subtitle}}</h2>
+      <div>
+        <p>{{washingtonSenator.name}}</p>
+      </div>
+    `
   })
   .Class({
     constructor: function() {
