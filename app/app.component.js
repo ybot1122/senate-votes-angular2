@@ -18,7 +18,7 @@
       </div>
       <div>
         <label>name: </label>
-        <input value="{{washingtonSenator.name}}" placeholder="name" />
+        <input [(ngModel)]="title" value="{{washingtonSenator.name}}" placeholder="name" />
       </div>
     `
   })
