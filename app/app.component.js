@@ -1,12 +1,5 @@
 (function(app) {
 
-  app.Senators = [
-    { name: 'Alexander', state: 'TN', party: 'R' },
-    { name: 'Ayotte', state: 'NH', party: 'R' },
-    { name: 'Baldwin', state: 'WI', party: 'D' },
-    { name: 'Barrasso', state: 'WY', party: 'R' },
-    { name: 'Bennet', state: 'CO', party: 'D' },
-  ];
 
   app.Senator = ng.core.Class({
     constructor: function(name, state, party) {
@@ -15,6 +8,14 @@
       this.party = party;
     }
   });
+
+  app.Senators = [
+    new app.Senator('Alexander', 'TN', 'R'),
+    new app.Senator('Ayotte', 'TN', 'R'),
+    new app.Senator('Baldwin', 'TN', 'R'),
+    new app.Senator('Barrasso', 'TN', 'R'),
+    new app.Senator('Bennet', 'TN', 'R')
+  ];
 
   app.TopView = ng.core.Component({
     selector: 'top-view',
