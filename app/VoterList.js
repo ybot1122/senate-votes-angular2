@@ -38,6 +38,17 @@
       });
     },
 
+    getListOrderedByState: function() {
+      var states = Object.keys(this.voters);
+      var result = [];
+      states.sort();
+      for (var i = 0; i < states.length; i++) {
+        result.push(this.voters[states[i]][0].senator);
+        result.push(this.voters[states[i]][1].senator);
+      }
+      return result;
+    },
+
     hasMajority: function() {
       return this.yeaVotes / this.totalVotes > .6;
     }
