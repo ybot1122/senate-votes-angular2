@@ -106,17 +106,16 @@
   app.RollCallDetail = ng.core.Component({
     selector: 'rollcall-detail',
     template: `
-      <ul class="senators">
-        <li *ngFor="let senator of senators">
-          {{senator.name}} ({{senator.state}} - {{senator.party}})
-        </li>
-      </ul>
+      <ul class="senators"></ul>
     `
   })
   .Class({
     constructor: function() {
       this.voterList = new app.VoterList("Test Bill");
-      this.senators = app.Senators;
-    },
+      for (var i = 0; i < app.Senators.length; i++) {
+        this.voterList.addSenatorVote(app.Senators[i], true); 
+      }
+      console.log(this.voterList);
+    }
   });
 })(window.app || (window.app = {}));
