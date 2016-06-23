@@ -1,49 +1,4 @@
 (function(app) {
-  // data structure that stores senators who voted on a bill
-  // with functions to sort and extact senators by certain fields
-  app.VoterList = ng.core.Class({
-    constructor: function(bill) {
-      this.bill = bill;
-      this.yeaVotes = 0;
-      this.totalVotes = 0;
-      this.voters = {};
-    },
-
-    addSenatorVote: function(senator, votedYea) {
-      // assert: senator is instanceOf app.Senator
-      // assert: vote is boolean (true/false)
-      // check if two senators for a state already exist
-
-      var state = senator.state;
-
-      if (!this.voters.state) {
-        this.voters.state = [];
-      }
-
-      // check
-      if (this.voters.state.length >= 2) {
-        console.error('States only get two senators each');
-        return;
-      }
-
-      // update internal representation
-      this.totalVotes += 1;
-      this.yeaVotes += (votedYea) ? 1 : 0;
-      this.voters.state.push({
-        senator: senator,
-        yea: votedYea
-      });
-    }
-  });
-
-  app.Senator = ng.core.Class({
-    constructor: function(name, state, party) {
-      this.state = state;
-      this.name = name;
-      this.party = party;
-    }
-  });
-
   app.RollCallDetail = ng.core.Component({
     selector: 'rollcall-detail',
     template: `<h3>oogabooga</h3>`
