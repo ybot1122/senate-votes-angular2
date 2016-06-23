@@ -4,10 +4,11 @@
 
 (function(app) {
   app.Senator = ng.core.Class({
-    constructor: function(name, state, party) {
+    constructor: function(name, state, party, votedYea) {
       this.state = state;
       this.name = name;
       this.party = party;
+      this.votedYea = votedYea
     }
   });
 })(window.app || (window.app = {}));

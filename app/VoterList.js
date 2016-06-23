@@ -6,7 +6,7 @@
   // data structure that stores senators who voted on a bill
   // with functions to sort and extact senators by certain fields
   app.VoterList = ng.core.Class({
-    constructor: function(bill, totalVotes) {
+    constructor: function(bill) {
       this.bill = bill;
       this.yeaVotes = 0;
       this.totalVotes = 0;
