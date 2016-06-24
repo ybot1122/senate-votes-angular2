@@ -107,7 +107,7 @@
     selector: 'rollcall-detail',
     inputs: ['sortMethod'],
     template: `
-      {{sortMethod}}
+      <div>Sorted by: {{sortMethod}}</div>
       <ul class="senators">
         <li *ngFor="let senator of viewList">
           {{senator.name}} ({{senator.state}} - {{senator.party}})
@@ -122,6 +122,25 @@
         this.voterList.addSenatorVote(app.Senators[i], true); 
       }
       this.viewList = this.voterList.getListOrderedByState();
+    },
+
+    ngOnChanges: function(changes) {
+      if (!changes || !changes.sortMethod) {
+        return;
+      }
+
+      switch(changes.sortMethod.currentValue) {
+        case 'state':
+          this.viewList = this.voterList.getListOrderedByState();
+          break;
+        case 'name':
+          this.viewList = [app.Senators[0]];
+          break;
+        case 'vote':
+          this.viewList = [app.Senators[1]];
+          break;
+
+      }
     }
   });
 })(window.app || (window.app = {}));
