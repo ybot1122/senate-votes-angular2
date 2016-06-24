@@ -16,7 +16,7 @@
         <div class="sort-button" (click)="resortList($event)" sort-method="name">Sort by Senator Name</div>
         <div class="sort-button" (click)="resortList($event)" sort-method="vote">Sort by Vote</div>
       </div>
-      <rollcall-detail></rollcall-detail>
+      <rollcall-detail [sortMethod]="currentSortMethod"></rollcall-detail>
     `
   })
   .Class({
@@ -24,6 +24,7 @@
       this.title = 'H.R.2578 Senate Vote Results';
       this.subtitle = 'A bill making appropriations for the Departments of Commerce and Justice, Science, and Related Agencies for the fiscal year ending September 30, 2016, and for other purposes.';
       this.searchQuery = '';
+      this.currentSortMethod = 'state';
     },
 
     resortList: function(e) {
@@ -32,17 +33,18 @@
         return;
       }
 
-      var sortMethod = e.target.getAttribute('sort-method');
+      var updatedSortMethod = e.target.getAttribute('sort-method');
+      console.log(updatedSortMethod);
 
-      switch(sortMethod) {
+      switch(updatedSortMethod) {
         case 'state':
-          console.log('stateee');
+          this.currentSortMethod = 'state';
           break;
         case 'name':
-          console.log('nameeee');
+          this.currentSortMethod = 'name';
           break;
         case 'vote':
-          console.log('voteee');
+          this.currentSortMethod = 'vote';
           break;
       }
     }

@@ -105,7 +105,9 @@
 
   app.RollCallDetail = ng.core.Component({
     selector: 'rollcall-detail',
+    inputs: ['sortMethod'],
     template: `
+      {{sortMethod}}
       <ul class="senators">
         <li *ngFor="let senator of viewList">
           {{senator.name}} ({{senator.state}} - {{senator.party}})
