@@ -120,7 +120,6 @@
         this.voterList.addSenatorVote(app.Senators[i], true); 
       }
       this.viewList = this.voterList.getListOrderedByState();
-      console.log(this.viewList);
     }
   });
 })(window.app || (window.app = {}));

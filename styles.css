@@ -7,3 +7,18 @@ h1 {
 body {
   margin: 2em;
 }
+
+.sort-button {
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  width: 150px;
+  border: 1px black solid;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.sort-button:hover {
+  border-color: green;
+}
