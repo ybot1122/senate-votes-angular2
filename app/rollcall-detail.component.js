@@ -110,7 +110,7 @@
       <div>Sorted by: {{sortMethod}}</div>
       <ul class="senators">
         <li *ngFor="let senator of viewList">
-          {{senator.name}} ({{senator.state}} - {{senator.party}})
+          {{senator.name}} ({{senator.state}} - {{senator.party}}): {{senator.votedYea ? "Yea" : "Nay"}}
         </li>
       </ul>
     `
@@ -134,10 +134,10 @@
           this.viewList = this.voterList.getListOrderedByState();
           break;
         case 'name':
-          this.viewList = [app.Senators[0]];
+          this.viewList = this.voterList.getListOrderedByName();
           break;
         case 'vote':
-          this.viewList = [app.Senators[1]];
+          this.viewList = this.voterList.getListOrderedByVote();
           break;
 
       }

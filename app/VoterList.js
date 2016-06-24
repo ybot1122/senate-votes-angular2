@@ -49,8 +49,36 @@
       return result;
     },
 
-    hasMajority: function() {
-      return this.yeaVotes / this.totalVotes > .6;
+    getListOrderedByName: function() {
+      var states = Object.keys(this.voters);
+      var result = [];
+      for (var i = 0; i < states.length; i++) {
+        result.push(this.voters[states[i]][0].senator);
+        result.push(this.voters[states[i]][1].senator);
+      }
+      result.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+      });
+      return result;
+    },
+
+    getListOrderedByVote: function() {
+      var states = Object.keys(this.voters);
+      var result = [];
+      for (var i = 0; i < states.length; i++) {
+        result.push(this.voters[states[i]][0].senator);
+        result.push(this.voters[states[i]][1].senator);
+      }
+      result.sort(function(a, b) {
+        if (a.votedYea && !b.votedYea) {
+          return -1;
+        } else if (!a.votedYea && b.votedYea) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      return result;
     }
   });
 })(window.app || (window.app = {}));
